@@ -1,0 +1,32 @@
+Contractor left Toyota source code exposed for five years
+
+Source code related to Toyota’s T-Connect service was left exposed on GitHub for over five years by a contractor
+
+Published: 11 Oct 2022 14:34
+By: Alex Scroxton, Security Editor
+
+Japanese automaker Toyota and its tech subsidiary Toyota Connected have been forced to issue an apology after discovering that a contractor had left source code relating to its T-Connect services publicly exposed via GitHub, putting the personal data of almost 300,000 drivers at risk of compromise.
+
+T-Connect is a suite of connected vehicle services offered to Toyota drivers that enables them to perform multiple actions from their smartphones, including planning journeys, locating vehicles, viewing driving analytics, scheduling services and maintenance, and obtaining accident assistance, among other things.
+
+Toyota said the affected customers had all registered for the service since July 2017, and that the potentially compromised data including email addresses and customer management numbers, but not names, phone numbers or credit card details. The incident came to Toyota’s attention on 15 September 2022.
+
+“In December 2017, the T-Connect website development subcontractor mistakenly uploaded part of the source code to their GitHub account while it was set to be public, in violation of the handling rules,” the company said in a statement, translated via Google Translate services.
+
+“As a result, it was revealed that from December 2017 to 15 September 2022, a third party was able to access part of the source code on GitHub. It was discovered that the published source code contained an access key to the data server, and by using it, it was possible to access the email address and customer management number stored in the data server.”
+
+Toyota said that the source code had now been locked down and affected customers informed. It said it had been unable to confirm whether or not the data was actually accessed or downloaded at any point, but that this could not be ruled out. Also, it has not observed or confirmed any abuse of the at-risk information at this stage.
+
+Jordan Schroeder, managing CISO at Barrier Networks, a Glasgow-based managed security services provider (MSSP), commented: “These types of secure development errors plague organisations today and it is their customers that pay the price after attackers discover the error and compromise systems and data.
+
+“Organisations must get better at source code control and management of secrets, like access keys, because there is a strong possibility that this data has already been accessed by attackers and Toyota might never know for sure.”
+
+Schroder added: “Addressing these weaknesses requires implementing secrets management so that access keys are pulled from secured secrets servers and not hard-coded into software, by locking down the development environment to prevent public access, and by setting up automated code repository security and access reviews, which includes searching the internet for code snippets that would indicate source code leakage.”
+
+However, Josep Prat, director of open source engineering at Finland-based cloud data management service Aiven, said the incident was an example of how even the most rigorous approach to securing code could be rendered effectively pointless in short order.
+
+“Resilience will only take you so far,” he said. “If the code is accidentally made public, like what happened with Toyota, suddenly any attacker can access privileged information that would enable them to exploit the system.
+
+“We’ve seen this sort of vulnerability happen before. A developer unintentionally leaves access keys to an internal environment exposed, and it is like giving a skeleton key that opens any lock to potential intruders.
+
+“To combat such vulnerabilities, proprietary code can learn a lot of lessons from open source. By designing source code as if it would be available to everyone, engineers are forced to create more robust systems, as they are no longer protected by security by obfuscation. By doing so, even when bad actors have access to privileged information, they will have a tougher time capitalising on the vulnerability.”
