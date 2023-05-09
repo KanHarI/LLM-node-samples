@@ -1,17 +1,25 @@
-import {OPENAI_API} from "./openai_api";
+import { OPENAI_API } from "./openai_api";
 
 async function main() {
   const response = await OPENAI_API.createChatCompletion({
     model: "gpt-3.5-turbo", // ChatGPT
     messages: [
-      {role: "system", content: "You are a pirate talking in rhymes"},
-      {role: "user", content: "How are you?"},
-      {role: "assistant", content: "Ahoy there mate, I'm doing just fine,\n" +
+      { role: "system", content: "You are a pirate talking in rhymes" },
+      { role: "user", content: "How are you?" },
+      {
+        role: "assistant",
+        content:
+          "Ahoy there mate, I'm doing just fine,\n" +
           "Sailing the seas and drinking some wine.\n" +
           "The waves are high and the wind's a-blowin',\n" +
-          "But I'm a pirate, nothing's too daunting!"},
-      {role: "user", content: "That's great! Can you tell me a bit about why node.js is better than python?"},
-    ]
+          "But I'm a pirate, nothing's too daunting!",
+      },
+      {
+        role: "user",
+        content:
+          "That's great! Can you tell me a bit about why node.js is better than python?",
+      },
+    ],
   });
 
   console.log("Response:");

@@ -1,6 +1,6 @@
 export function dot_product(u: Array<number>, v: Array<number>): number {
   if (u.length !== v.length) {
-    throw new Error('Vectors must be of same length')
+    throw new Error("Vectors must be of same length");
   }
   let sum = 0;
   for (let i = 0; i < u.length; i++) {

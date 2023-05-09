@@ -1,7 +1,8 @@
-import {OPENAI_API} from "./openai_api";
+import { OPENAI_API } from "./openai_api";
 
 async function main() {
-  const instruct_model_prompt = "Please write a rap song about a dog named Biscuit.";
+  const instruct_model_prompt =
+    "Please write a rap song about a dog named Biscuit.";
 
   const completion = await OPENAI_API.createCompletion({
     model: "text-davinci-003",
