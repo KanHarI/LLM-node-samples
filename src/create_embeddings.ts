@@ -39,7 +39,7 @@ export async function create_file_embeddings(
 
   // Split file into paragraphs
   const paragraphs = fileContent
-    .split("\n")
+    .split("\n\n")
     .map((s) => s.trim())
     .filter((s) => s.length > 0);
 
