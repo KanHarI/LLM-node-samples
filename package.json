@@ -1,0 +1,16 @@
+{
+  "name": "LLM-node-samples",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:KanHarI/LLM-node-samples.git",
+  "author": "KanHar <knaan.harpaz@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^20.1.1",
+    "openai": "^3.2.1",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  }
+}
