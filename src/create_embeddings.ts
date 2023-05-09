@@ -3,12 +3,16 @@ import * as crypto from "crypto";
 import * as path from "path";
 import { promisify } from "util";
 import { get_embedding_vector } from "./embedding";
+import * as url from 'node:url';
 
 const readFileAsync = promisify(fs.readFile);
 const writeFileAsync = promisify(fs.writeFile);
 const mkdirAsync = promisify(fs.mkdir);
 
-async function getFileEmbedding(filePath: string, verbose: boolean = false): Promise<{
+export async function create_file_embeddings(
+  filePath: string,
+  verbose = false
+): Promise<{
   original_file_name: string;
   data: Array<{ paragraph: string; embedding: Array<number> }>;
 }> {
@@ -29,7 +33,8 @@ async function getFileEmbedding(filePath: string, verbose: boolean = false): Pro
     if (verbose) {
       console.log("Embeddings already exist. Skipping.");
     }
-    return;
+    const json_content = await readFileAsync(jsonFilePath, "utf-8");
+    return JSON.parse(json_content);
   }
 
   // Split file into paragraphs
@@ -54,7 +59,7 @@ async function getFileEmbedding(filePath: string, verbose: boolean = false): Pro
   await writeFileAsync(jsonFilePath, JSON.stringify(outputJSON));
 
   if (verbose) {
-  console.log("Embeddings saved successfully.");
+    console.log("Embeddings saved successfully.");
   }
   return outputJSON;
 }
@@ -66,7 +71,12 @@ async function main() {
   }
 
   const inputFilePath = process.argv[2];
-  await getFileEmbedding(inputFilePath, true);
+  await create_file_embeddings(inputFilePath, true);
 }
 
-main();
+if (import.meta.url.startsWith('file:')) { // (A)
+  const modulePath = url.fileURLToPath(import.meta.url);
+  if (process.argv[1] === modulePath) { // (B)
+    main();
+  }
+}
