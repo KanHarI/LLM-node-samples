@@ -3,7 +3,7 @@ import * as crypto from "crypto";
 import * as path from "path";
 import { promisify } from "util";
 import { get_embedding_vector } from "./embedding";
-import * as url from 'node:url';
+import * as url from "node:url";
 
 const readFileAsync = promisify(fs.readFile);
 const writeFileAsync = promisify(fs.writeFile);
@@ -74,9 +74,11 @@ async function main() {
   await create_file_embeddings(inputFilePath, true);
 }
 
-if (import.meta.url.startsWith('file:')) { // (A)
+if (import.meta.url.startsWith("file:")) {
+  // (A)
   const modulePath = url.fileURLToPath(import.meta.url);
-  if (process.argv[1] === modulePath) { // (B)
+  if (process.argv[1] === modulePath) {
+    // (B)
     main();
   }
 }

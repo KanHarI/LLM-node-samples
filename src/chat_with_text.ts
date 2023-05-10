@@ -31,7 +31,7 @@ async function main() {
     output: process.stdout,
   });
   console.log("Type 'exit' to exit.");
-  console.log("Question:")
+  console.log("Question:");
   for await (const question of rl) {
     if (question == "exit") {
       rl.close();
@@ -52,11 +52,13 @@ async function main() {
     const user_message =
       question +
       "\n" +
-      "TOP " + TOP_K_NUM_ITEMS + " PARAGRAPHS:\n" +
+      "TOP " +
+      TOP_K_NUM_ITEMS +
+      " PARAGRAPHS:\n" +
       top_k_paragraphs.join("\n") +
       "\n";
     messages.push({ role: "user", content: user_message });
-    console.log("Awaiting OpenAI API...")
+    console.log("Awaiting OpenAI API...");
     const response = await OPENAI_API.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages,
@@ -66,7 +68,7 @@ async function main() {
     console.log("Response:");
     console.log(response_text);
     messages.push({ role: "assistant", content: response_text });
-    console.log("\nQuestion: ['exit' to exit]")
+    console.log("\nQuestion: ['exit' to exit]");
   }
 }
 
