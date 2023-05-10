@@ -21,5 +21,8 @@
   },
   "scripts": {
     "lint": "eslint . --ext .ts --fix"
+  },
+  "dependencies": {
+    "langchain": "^0.0.72"
   }
 }
