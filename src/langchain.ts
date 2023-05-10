@@ -1,19 +1,7 @@
-//Import the OpenAPI Large Language Model (you can import other models here eg. Cohere)
 import { OpenAI } from "langchain/llms/openai";
-
-//Import the Vector DB QA chain
 import { VectorDBQAChain } from "langchain/chains";
-
-//Import the Hierarchical Navigable Small World Graphs vector store (you'll learn
-//how it is used later in the code)
 import { HNSWLib } from "langchain/vectorstores/hnswlib";
-
-//Import OpenAI embeddings (you'll learn
-//how it is used later in the code)
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
-
-//Import the text splitter (you'll learn
-//how it is used later in the code)
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 
 //Import file stystem node module
