@@ -1,7 +1,7 @@
 import { create_file_embeddings } from "./create_embeddings";
 import * as readline from "readline";
 import { get_embedding_vector } from "./embedding";
-import { correlation } from "./math";
+import { cosine_similarity } from "./math";
 import { OPENAI_API } from "./openai_api";
 
 const TOP_K_NUM_ITEMS = 3;
@@ -41,9 +41,12 @@ async function main() {
     const sorted_embeddings = fileEmbeddings.data
       .map((entry) => ({
         paragraph: entry.paragraph,
-        correlation: correlation(entry.embedding, questionEmbedding),
+        cosine_similarity: cosine_similarity(
+          entry.embedding,
+          questionEmbedding
+        ),
       }))
-      .sort((a, b) => b.correlation - a.correlation);
+      .sort((a, b) => b.cosine_similarity - a.cosine_similarity);
     const top_k_paragraphs = sorted_embeddings
       .slice(0, TOP_K_NUM_ITEMS)
       .map((entry) => entry.paragraph);

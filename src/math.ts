@@ -13,6 +13,6 @@ export function norm(u: Array<number>): number {
   return Math.sqrt(dot_product(u, u));
 }
 
-export function correlation(u: Array<number>, v: Array<number>): number {
+export function cosine_similarity(u: Array<number>, v: Array<number>): number {
   return dot_product(u, v) / (norm(u) * norm(v));
 }

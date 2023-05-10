@@ -1,4 +1,4 @@
-import { correlation } from "./math";
+import { cosine_similarity } from "./math";
 import { get_embedding_vector } from "./embedding";
 
 async function main() {
@@ -29,48 +29,54 @@ async function main() {
   console.log("Embedding dimension:");
   console.log(regulations_reduce_risk_vector.length);
 
-  console.log("Correlation between:");
+  console.log("Cosine similarity between:");
   console.log(regulations_reduce_risk_text);
   console.log("and");
   console.log(cyber_security_challenges_increasing_text);
   console.log("is:");
   console.log(
-    correlation(
+    cosine_similarity(
       regulations_reduce_risk_vector,
       cyber_security_challenges_increasing_vector
     )
   );
 
-  console.log("Correlation between:");
+  console.log("Cosine similarity between:");
   console.log(regulations_reduce_risk_text);
   console.log("and");
   console.log(functional_programming_text);
   console.log("is:");
   console.log(
-    correlation(regulations_reduce_risk_vector, functional_programming_vector)
+    cosine_similarity(
+      regulations_reduce_risk_vector,
+      functional_programming_vector
+    )
   );
 
-  console.log("Correlation between:");
+  console.log("Cosine similarity between:");
   console.log(regulations_reduce_risk_text);
   console.log("and");
   console.log(cat_text);
   console.log("is:");
-  console.log(correlation(regulations_reduce_risk_vector, cat_vector));
+  console.log(cosine_similarity(regulations_reduce_risk_vector, cat_vector));
 
   // Output as of 2023-05-09:
-  // Correlation between:
+  //
+  // Embedding dimension:
+  // 1536
+  // Cosine similarity between:
   // Adhering to regulations can significantly reduce the risk of a data breach.
   // and
   // Cybersecurity challenges have significantly increased in magnitude and complexity since 2017.
   // is:
   // 0.8045933722363742
-  // Correlation between:
+  // Cosine similarity between:
   // Adhering to regulations can significantly reduce the risk of a data breach.
   // and
   // Functional programming (FP) is an approach to software development that uses pure functions to create maintainable software.
   // is:
   // 0.7215067556492332
-  // Correlation between:
+  // Cosine similarity between:
   // Adhering to regulations can significantly reduce the risk of a data breach.
   // and
   // The cat (Felis catus) is a domestic species of small carnivorous mammal.
