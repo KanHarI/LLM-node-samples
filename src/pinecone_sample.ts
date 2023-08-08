@@ -14,7 +14,7 @@ async function main() {
   const pinecone = new PineconeClient();
   await pinecone.init({
     environment: "us-west4-gcp-free",
-    apiKey: "d634b676-dfee-4510-b257-651158f704dc",
+    apiKey: "YOUR_API_KEY_HERE",
   });
   const indexesList = await pinecone.listIndexes();
   console.log(indexesList);
