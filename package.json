@@ -23,6 +23,7 @@
     "lint": "eslint . --ext .ts --fix"
   },
   "dependencies": {
+    "@pinecone-database/pinecone": "^0.1.6",
     "hnswlib-node": "^1.4.2",
     "langchain": "^0.0.72"
   }
